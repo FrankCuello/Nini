@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nini - Feliz Navidad 🎄</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a472a 0%, #0d2818 50%, #2d1b35 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px #fff;
+            pointer-events: none;
+            z-index: 1000;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .christmas-tree {
+            font-size: 80px;
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px #ffd700);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 3px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card::before {
+            content: '✨';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 40px;
+            animation: rotate 3s linear infinite;
+        }
+
+        .card::after {
+            content: '✨';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 40px;
+            animation: rotate 3s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            color: #c41e3a;
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .message {
+            color: #2d5016;
+            font-size: 24px;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-style: italic;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(196, 30, 58, 0.1));
+            border-radius: 15px;
+            border-left: 5px solid #c41e3a;
+        }
+
+        .highlight {
+            color: #c41e3a;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .signature {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px dashed #ffd700;
+        }
+
+        .signature-text {
+            color: #2d5016;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .from {
+            color: #c41e3a;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: 'Brush Script MT', cursive;
+            margin-top: 10px;
+        }
+
+        .decorations {
+            font-size: 30px;
+            margin: 20px 0;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .lights {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .light {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .light:nth-child(1) {
+            background: #ff0000;
+            animation-delay: 0s;
+        }
+
+        .light:nth-child(2) {
+            background: #00ff00;
+            animation-delay: 0.3s;
+        }
+
+        .light:nth-child(3) {
+            background: #0000ff;
+            animation-delay: 0.6s;
+        }
+
+        .light:nth-child(4) {
+            background: #ffff00;
+            animation-delay: 0.9s;
+        }
+
+        .light:nth-child(5) {
+            background: #ff00ff;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 10px currentColor;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            .message {
+                font-size: 20px;
+            }
+            .card {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="christmas-tree">🎄</div>
+        
+        <div class="card">
+            <div class="lights">
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+            </div>
+
+            <h1>¡Feliz Navidad, Nini! 🎅</h1>
+            
+            <div class="decorations">🎁 ⭐ 🔔 ⭐ 🎁</div>
+            
+            <div class="message">
+                Apareciste sin avisar, como la mejor sorpresa del año, y te convertiste en la <span class="highlight">compañía perfecta</span> que nunca supe que necesitaba. Gracias por hacer estos últimos meses tan especiales y por estar ahí cuando más lo necesité. 
+                <br><br>
+                Eres una <span class="highlight">persona increíble</span>, Nini, y me siento afortunado de tenerte como mi mejor amiga. 
+                <br><br>
+                Que esta Navidad te traiga toda la felicidad que mereces y que el próximo año esté lleno de momentos maravillosos. 🌟
+            </div>
+
+            <div class="decorations">❄️ 🎄 ❄️ 🎄 ❄️</div>
+
+            <div class="signature">
+                <div class="signature-text">Con mucho cariño,</div>
+                <div class="from">Tu querido "Manco" Frank 🎮</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 8000);
+        }
+
+        setInterval(createSnowflake, 200);
+
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createSnowflake, i * 100);
+        }
+    </script>
+</body>
+</html>
